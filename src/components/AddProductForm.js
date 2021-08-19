@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from  'react-r
 import DvdInput from "./selectedInputs/DvdInput";
 import BookInput from "./selectedInputs/BookInput";
 import FurnitureInput from "./selectedInputs/FurnitureInput";
-import axios from "axios";
+
 
 class AddProductForm extends Component
 {
@@ -357,17 +357,16 @@ class AddProductForm extends Component
             width: this.state.width,
             length: this.state.length
         }; 
-     
-        axios.post('https://scandiweb123.000webhostapp.com/addProduct.php', obj)
-        .then(function (){
-            window.location.href = '/'
-        }
-            
-        )
-        .catch(function (error) {
-        console.log(error);
-        });
-       
+      
+        fetch("https://scandiweb123.000webhostapp.com/addProduct.php", {  
+            method: "POST",
+            body: JSON.stringify(obj)
+            }).then(function() {
+                window.location.href = '/';
+            }).then(function(data) {
+                console.log(data);
+            });
+      
     }
     renderInputOfSelectedType(selectedTypeSwitcher)
     {
