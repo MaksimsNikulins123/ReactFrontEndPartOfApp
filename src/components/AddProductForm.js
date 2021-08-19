@@ -350,14 +350,14 @@ class AddProductForm extends Component
             sku: this.state.sku,
             name: this.state.name,
             price: this.state.price,
-            typeSwitcher: this.state.typeSwitcher,
+            type: this.state.typeSwitcher,
             size: this.state.size,
             weight: this.state.weight,
             height: this.state.height,
             width: this.state.width,
             length: this.state.length
         }; 
-      
+        // console.log(obj);
         fetch("https://scandiweb123.000webhostapp.com/addProduct.php", {  
             method: "POST",
             body: JSON.stringify(obj)

@@ -16,7 +16,7 @@ class ProductList extends Component
   componentDidMount(){
     axios.get('https://scandiweb123.000webhostapp.com/productList.php')
     .then(response => {
-      // console.log( response.data );
+      console.log( response.data );
       this.setState({ products: response.data });
     })
     .catch(function(error){
