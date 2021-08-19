@@ -358,7 +358,7 @@ class AddProductForm extends Component
             length: this.state.length
         }; 
      
-        axios.post('http://localhost/scandiweb/JuniorDeveloperTestTask/server/addProduct.php', obj)
+        axios.post('https://scandiweb123.000webhostapp.com/addProduct.php', obj)
         .then(function (){
             window.location.href = '/'
         }
