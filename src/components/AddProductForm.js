@@ -363,8 +363,6 @@ class AddProductForm extends Component
             body: JSON.stringify(obj)
             }).then(function() {
                 window.location.href = '/';
-            }).then(function(data) {
-                console.log(data);
             });
       
     }

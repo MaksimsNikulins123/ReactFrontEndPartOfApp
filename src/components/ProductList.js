@@ -16,7 +16,7 @@ class ProductList extends Component
   componentDidMount(){
     axios.get('https://scandiweb123.000webhostapp.com/productList.php')
     .then(response => {
-      console.log( response.data );
+      // console.log( response.data );
       this.setState({ products: response.data });
     })
     .catch(function(error){
@@ -38,11 +38,15 @@ class ProductList extends Component
     for (var i = 0; i < checkboxes.length; i++) {
     array.push(checkboxes[i].value)
     }
-    axios.post('https://scandiweb123.000webhostapp.com/deleteProduct.php', array)
-    .then(function (){
-      window.location.href = '/'
-  })
-    .catch(error =>console.log(error))
+ 
+    fetch("https://scandiweb123.000webhostapp.com/deleteProduct.php", {  
+      method: "POST",
+      body: array
+      }).then(function(response) {
+        return response.text();
+      }).then(function() {
+          window.location.href = '/';
+      });
   }
 
 
