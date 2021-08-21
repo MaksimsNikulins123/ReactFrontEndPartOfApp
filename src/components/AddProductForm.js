@@ -357,11 +357,13 @@ class AddProductForm extends Component
             width: this.state.width,
             length: this.state.length
         }; 
-        // console.log(obj);
         fetch("https://scandiweb123.000webhostapp.com/addProduct.php", {  
             method: "POST",
             body: JSON.stringify(obj)
-            }).then(function() {
+            })
+            .then(function(response) {
+                return response.text()})
+            .then(function() {
                 window.location.href = '/';
             });
       
